@@ -28,7 +28,7 @@ namespace WindowsFormsApp1.WUI {
             this.list3 = new System.Windows.Forms.ListBox();
             this.list1 = new System.Windows.Forms.ListBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.ctrlExit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button9 = new System.Windows.Forms.Button();
@@ -37,7 +37,7 @@ namespace WindowsFormsApp1.WUI {
             this.button11 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.initializeDedomenaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.initializeDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.addToScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
@@ -56,6 +56,7 @@ namespace WindowsFormsApp1.WUI {
             this.ctrlSchedule.Name = "ctrlSchedule";
             this.ctrlSchedule.Size = new System.Drawing.Size(1059, 179);
             this.ctrlSchedule.TabIndex = 7;
+            this.ctrlSchedule.SelectedIndexChanged += new System.EventHandler(this.ctrlSchedule_SelectedIndexChanged);
             // 
             // list3
             // 
@@ -87,15 +88,15 @@ namespace WindowsFormsApp1.WUI {
             this.listBox1.Size = new System.Drawing.Size(400, 88);
             this.listBox1.TabIndex = 4;
             // 
-            // ctrlExit
+            // btnAdd
             // 
-            this.ctrlExit.Location = new System.Drawing.Point(468, 256);
-            this.ctrlExit.Name = "ctrlExit";
-            this.ctrlExit.Size = new System.Drawing.Size(143, 32);
-            this.ctrlExit.TabIndex = 8;
-            this.ctrlExit.Text = "Add";
-            this.ctrlExit.UseVisualStyleBackColor = true;
-            this.ctrlExit.Click += new System.EventHandler(this.ctrlExit_Click);
+            this.btnAdd.Location = new System.Drawing.Point(468, 256);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(143, 32);
+            this.btnAdd.TabIndex = 8;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // button8
             // 
@@ -105,6 +106,7 @@ namespace WindowsFormsApp1.WUI {
             this.button8.TabIndex = 9;
             this.button8.Text = "Remove";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // dateTimePicker2
             // 
@@ -168,7 +170,7 @@ namespace WindowsFormsApp1.WUI {
             // mainToolStripMenuItem
             // 
             this.mainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.initializeDedomenaToolStripMenuItem,
+            this.initializeDataToolStripMenuItem,
             this.toolStripMenuItem1,
             this.addToScheduleToolStripMenuItem,
             this.toolStripMenuItem2,
@@ -178,48 +180,48 @@ namespace WindowsFormsApp1.WUI {
             this.mainToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.mainToolStripMenuItem.Text = "Main";
             // 
-            // initializeDedomenaToolStripMenuItem
+            // initializeDataToolStripMenuItem
             // 
-            this.initializeDedomenaToolStripMenuItem.Name = "initializeDedomenaToolStripMenuItem";
-            this.initializeDedomenaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.initializeDedomenaToolStripMenuItem.Text = "Initialize Dedomena";
-            this.initializeDedomenaToolStripMenuItem.Click += new System.EventHandler(this.initializeDedomenaToolStripMenuItem_Click);
+            this.initializeDataToolStripMenuItem.Name = "initializeDataToolStripMenuItem";
+            this.initializeDataToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.initializeDataToolStripMenuItem.Text = "Data Initialization";
+            this.initializeDataToolStripMenuItem.Click += new System.EventHandler(this.initializeDataToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(168, 6);
             // 
             // addToScheduleToolStripMenuItem
             // 
             this.addToScheduleToolStripMenuItem.Name = "addToScheduleToolStripMenuItem";
-            this.addToScheduleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToScheduleToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.addToScheduleToolStripMenuItem.Text = "Add To Schedule...";
             this.addToScheduleToolStripMenuItem.Click += new System.EventHandler(this.addToScheduleToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(168, 6);
             // 
             // loadDataToolStripMenuItem
             // 
             this.loadDataToolStripMenuItem.Name = "loadDataToolStripMenuItem";
-            this.loadDataToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadDataToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.loadDataToolStripMenuItem.Text = "Load Data";
             this.loadDataToolStripMenuItem.Click += new System.EventHandler(this.loadDataToolStripMenuItem_Click);
             // 
             // saveDataToolStripMenuItem
             // 
             this.saveDataToolStripMenuItem.Name = "saveDataToolStripMenuItem";
-            this.saveDataToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveDataToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.saveDataToolStripMenuItem.Text = "Save Data";
             this.saveDataToolStripMenuItem.Click += new System.EventHandler(this.saveDataToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // DataForm1
@@ -231,7 +233,7 @@ namespace WindowsFormsApp1.WUI {
             this.Controls.Add(this.button9);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.button8);
-            this.Controls.Add(this.ctrlExit);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.ctrlSchedule);
             this.Controls.Add(this.list3);
             this.Controls.Add(this.list1);
@@ -270,7 +272,7 @@ namespace WindowsFormsApp1.WUI {
         private System.Windows.Forms.ListBox list3;
         private System.Windows.Forms.ListBox list1;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button ctrlExit;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button button9;
@@ -279,7 +281,7 @@ namespace WindowsFormsApp1.WUI {
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mainToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem initializeDedomenaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem initializeDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addToScheduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;

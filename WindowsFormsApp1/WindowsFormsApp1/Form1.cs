@@ -11,7 +11,9 @@ namespace WindowsFormsApp1.WUI {
 
     public partial class DataForm1 : Form {
 
-        private University objects = new University();
+        private University UniversityApp = new University();
+
+        private string _jsonFile = "Data.json";
 
         public DataForm1() {
             InitializeComponent();
@@ -27,27 +29,27 @@ namespace WindowsFormsApp1.WUI {
 
             JavaScriptSerializer r = new JavaScriptSerializer();
 
-            objects = r.Deserialize<University>(File.ReadAllText("Data.json"));
+            UniversityApp = r.Deserialize<University>(File.ReadAllText("Data.json"));
 
-            foreach (Student a in objects.Students) {
-                list1.Items.Add(a.name + " " + a.surname);
+            foreach (Student student in UniversityApp.Students) {
+                list1.Items.Add(student.Name + " " + student.Surname);
             }
 
-            for (int i = 0; i < objects._course.Count - 1; i++) {
+            for (int i = 0; i < UniversityApp.Courses.Count - 1; i++) {
 
-                listBox1.Items.Add(objects._course[i].Code + "--" + objects._course[i].Subject);
+                listBox1.Items.Add(UniversityApp.Courses[i].Code + "--" + UniversityApp.Courses[i].Subject);
             }
 
 
-            foreach (Professor k in objects.prof_list) {
-                list3.Items.Add(string.Format("{0}  {1}", k.Name, k.Surname));
+            foreach (Professor professor in UniversityApp.Professors) {
+                list3.Items.Add(string.Format("{0}  {1}", professor.Name, professor.Surname));
             }
         }
 
         private void saveDataToolStripMenuItem_Click(object sender, EventArgs e) {
             JavaScriptSerializer save_Serializer = new JavaScriptSerializer();
 
-            File.WriteAllText("Data.json", save_Serializer.Serialize(objects));
+            File.WriteAllText("Data.json", save_Serializer.Serialize(UniversityApp));
         }
         #endregion
 
@@ -57,47 +59,48 @@ namespace WindowsFormsApp1.WUI {
             // todo : load data on enter!
         }
 
-        private void initializeDedomenaToolStripMenuItem_Click(object sender, EventArgs e) {
-
-            objects.run_once();
-
-            foreach (Student a in objects.Students) {
-                list1.Items.Add(a.name + " " + a.surname);
+      
+        private void UniversityDataInitialization() {
+            UniversityApp = new University();
+            UniversityApp.DataUniversity();
+            RefreshViews();
+        }
+        private void RefreshViews() {
+            foreach (Student student in UniversityApp.Students) {
+                list1.Items.Add(student.Name + " " + student.Surname);
             }
 
-            foreach (Course bb in objects._course) {
-                listBox1.Items.Add(bb.Code + "--" + bb.Subject);
+            foreach (Course course in UniversityApp.Courses) {
+                listBox1.Items.Add(course.Code + "--" + course.Subject);
             }
 
 
-            foreach (Professor cc1 in objects.prof_list) {
+            foreach (Professor professor in UniversityApp.Professors) {
 
-                list3.Items.Add(string.Format("{0}  {1}", cc1.Name, cc1.Surname));
+                list3.Items.Add(string.Format("{0}  {1}", professor.Name, professor.Surname));
             }
 
-            //should run only once!
-            button11.Hide();
         }
 
         private void button9_Click(object sender, EventArgs e) {
 
             JavaScriptSerializer GG = new JavaScriptSerializer();
 
-            objects = GG.Deserialize<University>(File.ReadAllText("Data.json"));
+            UniversityApp = GG.Deserialize<University>(File.ReadAllText("Data.json"));
 
-            foreach (Student a in objects.Students) {
-                list1.Items.Add(a.name + " " + a.surname);
+            foreach (Student student in UniversityApp.Students) {
+                list1.Items.Add(student.Name + " " + student.Surname);
             }
 
-            for (int i = 0; i < objects._course.Count - 1; i++) {
+            for (int i = 0; i < UniversityApp.Courses.Count - 1; i++) {
 
-                listBox1.Items.Add(objects._course[i].Code + "--" + objects._course[i].Subject);
+                listBox1.Items.Add(UniversityApp.Courses[i].Code + "--" + UniversityApp.Courses[i].Subject);
             }
 
             // we do a loop
-            foreach (Professor cc1 in objects.prof_list) {
+            foreach (Professor professor in UniversityApp.Professors) {
                 // we add to the list
-                list3.Items.Add(string.Format("{0}  {1}", cc1.Name, cc1.Surname));
+                list3.Items.Add(string.Format("{0}  {1}", professor.Name, professor.Surname));
             }
 
         }
@@ -105,36 +108,10 @@ namespace WindowsFormsApp1.WUI {
         private void button10_Click(object sender, EventArgs e) {
             JavaScriptSerializer ff = new JavaScriptSerializer();
 
-            File.WriteAllText("Data.json", ff.Serialize(objects));
+            File.WriteAllText("Data.json", ff.Serialize(UniversityApp));
         }
 
-        private void ctrlExit_Click(object sender, EventArgs e) {
 
-            try {
-
-                // TODO: 1. CANNOT ADD SAME STUDENT + PROFESSOR IN SAME DATE & HOUR
-
-                // TODO: 2. EACH STUDENT CANNOT HAVE MORE THAN 3 COURSES PER DAY!
-
-                // TODO: 3. A PROFESSOR CANNOT TEACH MORE THAN 4 COURSES PER DAY AND 40 COURSES PER WEEK
-
-                objects.ScheduleList.Add(new Schedule() { Course = listBox1.SelectedItem.ToString(), Student = list1.SelectedItem.ToString(), Professor = list3.SelectedItem.ToString(), Calendar = dateTimePicker2.Value });
-
-                ctrlSchedule.Items.Clear();
-                foreach (var AA in objects.ScheduleList) {
-
-                    ctrlSchedule.Items.Add(AA.Calendar + " | " + AA.Course + " | " + AA.Student + " | " + AA.Professor);
-
-                }
-            }
-            catch { 
-            
-            }
-            finally {
-                MessageBox.Show("all ok!");
-
-            }
-        }
 
         public void validate_professorCourse_with_studentCourse() { 
         
@@ -148,18 +125,18 @@ namespace WindowsFormsApp1.WUI {
 
             
 
-            objects.run_once();
+            //UniversityApp.run_once();
 
-            foreach (Student a in objects.Students) {
-                list1.Items.Add(a.name + " " + a.surname);
+            foreach (Student student in UniversityApp.Students) {
+                list1.Items.Add(student.Name + " " + student.Surname);
             }
 
-            foreach (Course bb in objects._course) {
-                listBox1.Items.Add(bb.Code + "--" + bb.Subject);
+            foreach (Course course in UniversityApp.Courses) {
+                listBox1.Items.Add(course.Code + "--" + course.Subject);
             }
 
 
-            foreach (Professor cc1 in objects.prof_list) {
+            foreach (Professor cc1 in UniversityApp.Professors) {
 
                 list3.Items.Add(string.Format("{0}  {1}", cc1.Name, cc1.Surname));
             }
@@ -173,23 +150,67 @@ namespace WindowsFormsApp1.WUI {
             // todo : display on a grid??
 
             // todo: add exception handling?
-                objects.ScheduleList.Add(new Schedule() { 
+                UniversityApp.ScheduleList.Add(new Schedule() { 
                     Course = listBox1.SelectedItem.ToString(), Student = list1.SelectedItem.ToString()
                         , Professor = list3.SelectedItem.ToString(), Calendar = dateTimePicker2.Value });
 
                 ctrlSchedule.Items.Clear();
-                foreach (var AA in objects.ScheduleList) {
+                foreach (var schedulelist in UniversityApp.ScheduleList) {
 
                     ctrlSchedule.Items.Add(
-                        AA.Calendar + " " + 
-                        AA.Course + " " + 
-                        AA.Student + " " + 
-                        AA.Professor);
+                        schedulelist.Calendar + " " +
+                        schedulelist.Course + " " +
+                        schedulelist.Student + " " +
+                        schedulelist.Professor);
 
                 }
         
         }
 
+        private void ctrlSchedule_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e) {
+
+        }
+
+        private void initializeDataToolStripMenuItem_Click(object sender, EventArgs e) {
+            UniversityDataInitialization();
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e) {
+            AddNewSchedule();
+
+        }
+
+        private void AddNewSchedule() {
+            try {
+
+                // TODO: 1. CANNOT ADD SAME STUDENT + PROFESSOR IN SAME DATE & HOUR
+
+                // TODO: 2. EACH STUDENT CANNOT HAVE MORE THAN 3 COURSES PER DAY!
+
+                // TODO: 3. A PROFESSOR CANNOT TEACH MORE THAN 4 COURSES PER DAY AND 40 COURSES PER WEEK
+
+                UniversityApp.ScheduleList.Add(new Schedule() { Course = listBox1.SelectedItem.ToString(), Student = list1.SelectedItem.ToString(), Professor = list3.SelectedItem.ToString(), Calendar = dateTimePicker2.Value });
+
+                ctrlSchedule.Items.Clear();
+                foreach (var AA in UniversityApp.ScheduleList) {
+
+                    ctrlSchedule.Items.Add(AA.Calendar + " | " + AA.Course + " | " + AA.Student + " | " + AA.Professor);
+
+                }
+            }
+            catch {
+
+            }
+            finally {
+                MessageBox.Show("all ok!");
+
+            }
+        }
     }
 }
 
