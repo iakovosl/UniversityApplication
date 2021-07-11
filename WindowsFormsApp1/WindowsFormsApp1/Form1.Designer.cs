@@ -52,9 +52,9 @@ namespace WindowsFormsApp1.WUI {
             this.ctrlSchedule.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ctrlSchedule.FormattingEnabled = true;
             this.ctrlSchedule.ItemHeight = 25;
-            this.ctrlSchedule.Location = new System.Drawing.Point(56, 460);
+            this.ctrlSchedule.Location = new System.Drawing.Point(407, 86);
             this.ctrlSchedule.Name = "ctrlSchedule";
-            this.ctrlSchedule.Size = new System.Drawing.Size(1059, 179);
+            this.ctrlSchedule.Size = new System.Drawing.Size(780, 254);
             this.ctrlSchedule.TabIndex = 7;
             this.ctrlSchedule.SelectedIndexChanged += new System.EventHandler(this.ctrlSchedule_SelectedIndexChanged);
             // 
@@ -63,9 +63,9 @@ namespace WindowsFormsApp1.WUI {
             this.list3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.list3.FormattingEnabled = true;
             this.list3.ItemHeight = 21;
-            this.list3.Location = new System.Drawing.Point(440, 106);
+            this.list3.Location = new System.Drawing.Point(12, 274);
             this.list3.Name = "list3";
-            this.list3.Size = new System.Drawing.Size(308, 67);
+            this.list3.Size = new System.Drawing.Size(375, 67);
             this.list3.TabIndex = 6;
             // 
             // list1
@@ -73,9 +73,9 @@ namespace WindowsFormsApp1.WUI {
             this.list1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.list1.FormattingEnabled = true;
             this.list1.ItemHeight = 21;
-            this.list1.Location = new System.Drawing.Point(24, 216);
+            this.list1.Location = new System.Drawing.Point(12, 180);
             this.list1.Name = "list1";
-            this.list1.Size = new System.Drawing.Size(400, 88);
+            this.list1.Size = new System.Drawing.Size(375, 88);
             this.list1.TabIndex = 5;
             // 
             // listBox1
@@ -83,14 +83,14 @@ namespace WindowsFormsApp1.WUI {
             this.listBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 21;
-            this.listBox1.Location = new System.Drawing.Point(24, 106);
+            this.listBox1.Location = new System.Drawing.Point(12, 86);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(400, 88);
+            this.listBox1.Size = new System.Drawing.Size(375, 88);
             this.listBox1.TabIndex = 4;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(468, 256);
+            this.btnAdd.Location = new System.Drawing.Point(12, 367);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(143, 32);
             this.btnAdd.TabIndex = 8;
@@ -100,7 +100,7 @@ namespace WindowsFormsApp1.WUI {
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(56, 422);
+            this.button8.Location = new System.Drawing.Point(182, 367);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(143, 32);
             this.button8.TabIndex = 9;
@@ -110,14 +110,14 @@ namespace WindowsFormsApp1.WUI {
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(448, 216);
+            this.dateTimePicker2.Location = new System.Drawing.Point(12, 60);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 10;
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(505, 645);
+            this.button9.Location = new System.Drawing.Point(883, 367);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(143, 32);
             this.button9.TabIndex = 11;
@@ -127,7 +127,7 @@ namespace WindowsFormsApp1.WUI {
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(654, 645);
+            this.button10.Location = new System.Drawing.Point(1044, 367);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(143, 32);
             this.button10.TabIndex = 12;
@@ -140,7 +140,7 @@ namespace WindowsFormsApp1.WUI {
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label6.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label6.Location = new System.Drawing.Point(21, 54);
+            this.label6.Location = new System.Drawing.Point(345, 12);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(426, 42);
             this.label6.TabIndex = 13;
@@ -148,7 +148,7 @@ namespace WindowsFormsApp1.WUI {
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(610, 57);
+            this.button11.Location = new System.Drawing.Point(12, 487);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(187, 32);
             this.button11.TabIndex = 14;
@@ -163,7 +163,7 @@ namespace WindowsFormsApp1.WUI {
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(809, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1199, 24);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -226,7 +226,7 @@ namespace WindowsFormsApp1.WUI {
             // 
             // DataForm1
             // 
-            this.ClientSize = new System.Drawing.Size(809, 737);
+            this.ClientSize = new System.Drawing.Size(1199, 547);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button10);
