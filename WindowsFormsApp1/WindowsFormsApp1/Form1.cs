@@ -13,7 +13,10 @@ namespace WindowsFormsApp1.WUI {
 
         private University UniversityApp = new University();
 
-        private string _jsonFile = "Data.json";
+        //private string _jsonFile = "Data.json";
+        private const string _JsonFile = "UniData111.json";
+        public List<Form> OpenForms { get; set; }
+        public object EditObject { get; set; }
 
         public DataForm1() {
             InitializeComponent();
@@ -23,6 +26,7 @@ namespace WindowsFormsApp1.WUI {
         private void DataForm_Load(object sender, EventArgs e) {
 
             // todo : load data on enter!
+           
         }
 
         private void loadDataToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -209,6 +213,27 @@ namespace WindowsFormsApp1.WUI {
             finally {
                 MessageBox.Show("all ok!");
 
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e) {
+            // JsonController json = new JsonController(_JsonFile);
+            //  json.SerializeToJson(UniversityApp);
+            JavaScriptSerializer save_Serializer = new JavaScriptSerializer();
+
+            File.WriteAllText("UniData111.json", save_Serializer.Serialize(UniversityApp));
+
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e) {
+            // UniversityApp = (new JsonController(_JsonFile)).DeserializeFromJson();
+            // RefreshViews();
+            JavaScriptSerializer r = new JavaScriptSerializer();
+
+            UniversityApp = r.Deserialize<University>(File.ReadAllText("UniData111.json"));
+
+            foreach (Schedule schedule in UniversityApp.ScheduleList) {
+                ctrlSchedule.Items.Add(schedule.Student + " " + schedule.Professor + " " +schedule.Course + " " +schedule.Calendar);
             }
         }
     }

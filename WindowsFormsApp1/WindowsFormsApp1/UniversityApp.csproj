@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="Impl\Course.cs" />
     <Compile Include="Impl\CourseCategoryEnum.cs" />
+    <Compile Include="Impl\JsonController.cs" />
     <Compile Include="Impl\Professor.cs" />
     <Compile Include="Impl\Schedule.cs" />
     <Compile Include="Impl\Student.cs" />
