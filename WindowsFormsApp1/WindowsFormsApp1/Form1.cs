@@ -16,7 +16,7 @@ namespace WindowsFormsApp1.WUI {
         private University UniversityApp = new University();
 
         //private string _jsonFile = "Data.json";
-        private const string _JsonFile = "UniData111.json";
+        private const string _JsonFile = "UniData22.json";
         public List<Form> OpenForms { get; set; }
         public object EditObject { get; set; }
         public BindingList<Schedule> ScheduledCourses { get; set; }
@@ -57,7 +57,7 @@ namespace WindowsFormsApp1.WUI {
         private void saveDataToolStripMenuItem_Click(object sender, EventArgs e) {
             JavaScriptSerializer save_Serializer = new JavaScriptSerializer();
 
-            File.WriteAllText("Data.json", save_Serializer.Serialize(UniversityApp));
+            File.WriteAllText("UniData21.json", save_Serializer.Serialize(UniversityApp));
         }
         #endregion
 
@@ -69,7 +69,7 @@ namespace WindowsFormsApp1.WUI {
             ctrlSchedule.Visible = false;
             button11.Visible = false;
             btnLoad.Visible = false;
-            btnSave.Visible = false;
+            
             button9.Visible = false;
             button10.Visible = false;
            
@@ -292,7 +292,7 @@ namespace WindowsFormsApp1.WUI {
             var professorSchedule = UniversityApp.ScheduledCourses.Where(x => x.ProfessorID == professorID);
             var countCourses = professorSchedule.Count(x => x.Date == calendar.Date);
             if (countCourses >= 4) {
-                MessageBox.Show("Selected Professor cannot teach more than 4 coursesper day!");
+                MessageBox.Show("Selected Professor cannot teach more than 4 courses per day!");
                 return false;
             }
             return true;
@@ -311,7 +311,7 @@ namespace WindowsFormsApp1.WUI {
             }
             return true;
         }
-    
+              // Display on a grid
     private void LoadUniversityData() {
             //load data from University class to object
             UniversityApp.DataUniversity(); 
@@ -368,7 +368,7 @@ namespace WindowsFormsApp1.WUI {
                 return;
             }else if (ProfessorAvailabilityValidation(courseTime, calendar, professorID) == false) {
                 return;
-            }
+            }else
 
             //Adding new scheduled course in grid
             UniversityApp.AddScheduledCourse(courseID, professorID, studentID, calendar.Date, courseTime); 
@@ -389,6 +389,10 @@ namespace WindowsFormsApp1.WUI {
         }
 
         private void btnRemove_Click(object sender, EventArgs e) {
+            RemoveButton();
+        }
+
+        private void RemoveButton() {
             int rowIndex = ctrlScheduledataGridView.CurrentCell.RowIndex;
             ctrlScheduledataGridView.Rows.RemoveAt(rowIndex);
         }
