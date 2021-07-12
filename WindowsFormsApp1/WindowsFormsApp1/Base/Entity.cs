@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.Base {
    public class Entity {
-        public Guid ID { get; set; }
+        public Guid ID { get; private set; }
 
         public Entity() {
 

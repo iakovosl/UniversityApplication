@@ -8,11 +8,9 @@ using WindowsFormsApp1.Base;
 namespace WindowsFormsApp1.Impl {
    public class Student: Person {
         // PROPERTIES
-        public string RegistrationNumber { get; set; }
+        public int RegistrationNumber { get; set; }
         public List<CourseCategoryEnum> CanLearn { get; set; }
 
         public Student():base() { }
-
-        
     }
 }

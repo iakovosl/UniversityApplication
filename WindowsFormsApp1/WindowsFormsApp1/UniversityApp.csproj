@@ -84,6 +84,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsApp1.Base.Entity.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsApp1.Base.Person.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsApp1.Impl.Course.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsApp1.Impl.JsonController.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsApp1.Impl.Professor.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsApp1.Impl.Schedule.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsApp1.Impl.Student.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsApp1.Impl.University.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsApp1.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsApp1.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsApp1.WUI.DataForm1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
