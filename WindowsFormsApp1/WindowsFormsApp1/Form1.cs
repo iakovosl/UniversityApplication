@@ -72,7 +72,7 @@ namespace WindowsFormsApp1.WUI {
             btnSave.Visible = false;
             button9.Visible = false;
             button10.Visible = false;
-            button8.Visible = false;
+           
             btnAdd.Visible = false;
             // todo : load data on enter!
             LoadUniversityData();
@@ -198,9 +198,7 @@ namespace WindowsFormsApp1.WUI {
 
         }
 
-        private void button8_Click(object sender, EventArgs e) {
-
-        }
+      
 
         private void initializeDataToolStripMenuItem_Click(object sender, EventArgs e) {
             UniversityDataInitialization();
@@ -244,7 +242,7 @@ namespace WindowsFormsApp1.WUI {
             //  json.SerializeToJson(UniversityApp);
             JavaScriptSerializer save_Serializer = new JavaScriptSerializer();
 
-            File.WriteAllText("UniData111.json", save_Serializer.Serialize(UniversityApp));
+            File.WriteAllText("UniData22.json", save_Serializer.Serialize(UniversityApp));
 
         }
 
@@ -388,6 +386,11 @@ namespace WindowsFormsApp1.WUI {
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e) {
 
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e) {
+            int rowIndex = ctrlScheduledataGridView.CurrentCell.RowIndex;
+            ctrlScheduledataGridView.Rows.RemoveAt(rowIndex);
         }
     }
 }

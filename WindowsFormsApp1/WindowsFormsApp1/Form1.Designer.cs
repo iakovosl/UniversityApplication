@@ -30,7 +30,7 @@ namespace WindowsFormsApp1.WUI {
             this.ctrlStudentList = new System.Windows.Forms.ListBox();
             this.ctrlProfessorList = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.dateTimePickerDays = new System.Windows.Forms.DateTimePicker();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -48,16 +48,27 @@ namespace WindowsFormsApp1.WUI {
             this.btnSave = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.ctrlStudentdataGridView = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registrationNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ctrlProfessordataGridView = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rankDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.professorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ctrlCoursedataGridView = new System.Windows.Forms.DataGridView();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hoursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ctrlScheduledataGridView = new System.Windows.Forms.DataGridView();
-            this.btnAddNewSchedule = new System.Windows.Forms.Button();
-            this.dateTimePickerHours = new System.Windows.Forms.ComboBox();
-            this.lblStudent = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.iDDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.professorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,33 +81,22 @@ namespace WindowsFormsApp1.WUI {
             this.courseTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hoursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rankDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.professorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registrationNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAddNewSchedule = new System.Windows.Forms.Button();
+            this.dateTimePickerHours = new System.Windows.Forms.ComboBox();
+            this.lblStudent = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlStudentdataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlProfessordataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCoursedataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlScheduledataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professorBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ctrlSchedule
@@ -104,7 +104,7 @@ namespace WindowsFormsApp1.WUI {
             this.ctrlSchedule.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ctrlSchedule.FormattingEnabled = true;
             this.ctrlSchedule.ItemHeight = 25;
-            this.ctrlSchedule.Location = new System.Drawing.Point(70, 389);
+            this.ctrlSchedule.Location = new System.Drawing.Point(125, 336);
             this.ctrlSchedule.Name = "ctrlSchedule";
             this.ctrlSchedule.Size = new System.Drawing.Size(64, 79);
             this.ctrlSchedule.TabIndex = 7;
@@ -150,15 +150,15 @@ namespace WindowsFormsApp1.WUI {
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button8
+            // btnRemove
             // 
-            this.button8.Location = new System.Drawing.Point(1110, 499);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(60, 32);
-            this.button8.TabIndex = 9;
-            this.button8.Text = "Remove";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btnRemove.Location = new System.Drawing.Point(977, 355);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(120, 39);
+            this.btnRemove.TabIndex = 9;
+            this.btnRemove.Text = "Remove Selected Record";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // dateTimePickerDays
             // 
@@ -317,6 +317,46 @@ namespace WindowsFormsApp1.WUI {
             this.ctrlStudentdataGridView.Size = new System.Drawing.Size(406, 150);
             this.ctrlStudentdataGridView.TabIndex = 18;
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // surnameDataGridViewTextBoxColumn
+            // 
+            this.surnameDataGridViewTextBoxColumn.DataPropertyName = "Surname";
+            this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
+            this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
+            this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            this.ageDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // registrationNumberDataGridViewTextBoxColumn
+            // 
+            this.registrationNumberDataGridViewTextBoxColumn.DataPropertyName = "RegistrationNumber";
+            this.registrationNumberDataGridViewTextBoxColumn.HeaderText = "RegistrationNumber";
+            this.registrationNumberDataGridViewTextBoxColumn.Name = "registrationNumberDataGridViewTextBoxColumn";
+            this.registrationNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataSource = typeof(WindowsFormsApp1.Impl.Student);
+            // 
             // ctrlProfessordataGridView
             // 
             this.ctrlProfessordataGridView.AllowUserToAddRows = false;
@@ -337,6 +377,46 @@ namespace WindowsFormsApp1.WUI {
             this.ctrlProfessordataGridView.Size = new System.Drawing.Size(422, 150);
             this.ctrlProfessordataGridView.TabIndex = 19;
             // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // surnameDataGridViewTextBoxColumn1
+            // 
+            this.surnameDataGridViewTextBoxColumn1.DataPropertyName = "Surname";
+            this.surnameDataGridViewTextBoxColumn1.HeaderText = "Surname";
+            this.surnameDataGridViewTextBoxColumn1.Name = "surnameDataGridViewTextBoxColumn1";
+            this.surnameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // ageDataGridViewTextBoxColumn1
+            // 
+            this.ageDataGridViewTextBoxColumn1.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn1.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn1.Name = "ageDataGridViewTextBoxColumn1";
+            this.ageDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // rankDataGridViewTextBoxColumn
+            // 
+            this.rankDataGridViewTextBoxColumn.DataPropertyName = "Rank";
+            this.rankDataGridViewTextBoxColumn.HeaderText = "Rank";
+            this.rankDataGridViewTextBoxColumn.Name = "rankDataGridViewTextBoxColumn";
+            this.rankDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iDDataGridViewTextBoxColumn1
+            // 
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // professorBindingSource
+            // 
+            this.professorBindingSource.DataSource = typeof(WindowsFormsApp1.Impl.Professor);
+            // 
             // ctrlCoursedataGridView
             // 
             this.ctrlCoursedataGridView.AllowUserToAddRows = false;
@@ -356,6 +436,46 @@ namespace WindowsFormsApp1.WUI {
             this.ctrlCoursedataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ctrlCoursedataGridView.Size = new System.Drawing.Size(443, 150);
             this.ctrlCoursedataGridView.TabIndex = 20;
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // subjectDataGridViewTextBoxColumn
+            // 
+            this.subjectDataGridViewTextBoxColumn.DataPropertyName = "Subject";
+            this.subjectDataGridViewTextBoxColumn.HeaderText = "Subject";
+            this.subjectDataGridViewTextBoxColumn.Name = "subjectDataGridViewTextBoxColumn";
+            this.subjectDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // hoursDataGridViewTextBoxColumn
+            // 
+            this.hoursDataGridViewTextBoxColumn.DataPropertyName = "Hours";
+            this.hoursDataGridViewTextBoxColumn.HeaderText = "Hours";
+            this.hoursDataGridViewTextBoxColumn.Name = "hoursDataGridViewTextBoxColumn";
+            this.hoursDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iDDataGridViewTextBoxColumn2
+            // 
+            this.iDDataGridViewTextBoxColumn2.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn2.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn2.Name = "iDDataGridViewTextBoxColumn2";
+            this.iDDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // courseBindingSource
+            // 
+            this.courseBindingSource.DataSource = typeof(WindowsFormsApp1.Impl.Course);
             // 
             // ctrlScheduledataGridView
             // 
@@ -381,86 +501,6 @@ namespace WindowsFormsApp1.WUI {
             this.ctrlScheduledataGridView.ReadOnly = true;
             this.ctrlScheduledataGridView.Size = new System.Drawing.Size(743, 187);
             this.ctrlScheduledataGridView.TabIndex = 21;
-            // 
-            // btnAddNewSchedule
-            // 
-            this.btnAddNewSchedule.Location = new System.Drawing.Point(368, 53);
-            this.btnAddNewSchedule.Name = "btnAddNewSchedule";
-            this.btnAddNewSchedule.Size = new System.Drawing.Size(143, 32);
-            this.btnAddNewSchedule.TabIndex = 22;
-            this.btnAddNewSchedule.Text = "New Schedule";
-            this.btnAddNewSchedule.UseVisualStyleBackColor = true;
-            this.btnAddNewSchedule.Click += new System.EventHandler(this.btnAddNewSchedule_Click_1);
-            // 
-            // dateTimePickerHours
-            // 
-            this.dateTimePickerHours.FormattingEnabled = true;
-            this.dateTimePickerHours.Items.AddRange(new object[] {
-            "08:00-10:00",
-            "10:00-12:00",
-            "12:00-14:00",
-            "14:00-16:00",
-            "16:00-18:00",
-            "18:00-20:00"});
-            this.dateTimePickerHours.Location = new System.Drawing.Point(228, 60);
-            this.dateTimePickerHours.Name = "dateTimePickerHours";
-            this.dateTimePickerHours.Size = new System.Drawing.Size(121, 21);
-            this.dateTimePickerHours.TabIndex = 23;
-            // 
-            // lblStudent
-            // 
-            this.lblStudent.AutoSize = true;
-            this.lblStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.lblStudent.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblStudent.Location = new System.Drawing.Point(566, 101);
-            this.lblStudent.Name = "lblStudent";
-            this.lblStudent.Size = new System.Drawing.Size(92, 18);
-            this.lblStudent.TabIndex = 24;
-            this.lblStudent.Text = "Professors";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label7.Location = new System.Drawing.Point(138, 101);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 18);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Students";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label8.Location = new System.Drawing.Point(956, 101);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 18);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Courses";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label9.Location = new System.Drawing.Point(542, 300);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(86, 18);
-            this.label9.TabIndex = 27;
-            this.label9.Text = "Schedules";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.Location = new System.Drawing.Point(5, 355);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 18);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Students";
             // 
             // iDDataGridViewTextBoxColumn3
             // 
@@ -547,125 +587,85 @@ namespace WindowsFormsApp1.WUI {
             // 
             this.scheduleBindingSource.DataSource = typeof(WindowsFormsApp1.Impl.Schedule);
             // 
-            // codeDataGridViewTextBoxColumn
+            // btnAddNewSchedule
             // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.btnAddNewSchedule.Location = new System.Drawing.Point(355, 54);
+            this.btnAddNewSchedule.Name = "btnAddNewSchedule";
+            this.btnAddNewSchedule.Size = new System.Drawing.Size(143, 32);
+            this.btnAddNewSchedule.TabIndex = 22;
+            this.btnAddNewSchedule.Text = "New Schedule";
+            this.btnAddNewSchedule.UseVisualStyleBackColor = true;
+            this.btnAddNewSchedule.Click += new System.EventHandler(this.btnAddNewSchedule_Click_1);
             // 
-            // subjectDataGridViewTextBoxColumn
+            // dateTimePickerHours
             // 
-            this.subjectDataGridViewTextBoxColumn.DataPropertyName = "Subject";
-            this.subjectDataGridViewTextBoxColumn.HeaderText = "Subject";
-            this.subjectDataGridViewTextBoxColumn.Name = "subjectDataGridViewTextBoxColumn";
-            this.subjectDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateTimePickerHours.FormattingEnabled = true;
+            this.dateTimePickerHours.Items.AddRange(new object[] {
+            "08:00-10:00",
+            "10:00-12:00",
+            "12:00-14:00",
+            "14:00-16:00",
+            "16:00-18:00",
+            "18:00-20:00"});
+            this.dateTimePickerHours.Location = new System.Drawing.Point(228, 60);
+            this.dateTimePickerHours.Name = "dateTimePickerHours";
+            this.dateTimePickerHours.Size = new System.Drawing.Size(121, 21);
+            this.dateTimePickerHours.TabIndex = 23;
             // 
-            // hoursDataGridViewTextBoxColumn
+            // lblStudent
             // 
-            this.hoursDataGridViewTextBoxColumn.DataPropertyName = "Hours";
-            this.hoursDataGridViewTextBoxColumn.HeaderText = "Hours";
-            this.hoursDataGridViewTextBoxColumn.Name = "hoursDataGridViewTextBoxColumn";
-            this.hoursDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lblStudent.AutoSize = true;
+            this.lblStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.lblStudent.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblStudent.Location = new System.Drawing.Point(566, 101);
+            this.lblStudent.Name = "lblStudent";
+            this.lblStudent.Size = new System.Drawing.Size(92, 18);
+            this.lblStudent.TabIndex = 24;
+            this.lblStudent.Text = "Professors";
             // 
-            // categoryDataGridViewTextBoxColumn
+            // label7
             // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label7.Location = new System.Drawing.Point(138, 101);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 18);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Students";
             // 
-            // iDDataGridViewTextBoxColumn2
+            // label8
             // 
-            this.iDDataGridViewTextBoxColumn2.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn2.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn2.Name = "iDDataGridViewTextBoxColumn2";
-            this.iDDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn2.Visible = false;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label8.Location = new System.Drawing.Point(956, 101);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 18);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Courses";
             // 
-            // courseBindingSource
+            // label9
             // 
-            this.courseBindingSource.DataSource = typeof(WindowsFormsApp1.Impl.Course);
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label9.Location = new System.Drawing.Point(542, 300);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(86, 18);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Schedules";
             // 
-            // nameDataGridViewTextBoxColumn1
+            // label6
             // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // surnameDataGridViewTextBoxColumn1
-            // 
-            this.surnameDataGridViewTextBoxColumn1.DataPropertyName = "Surname";
-            this.surnameDataGridViewTextBoxColumn1.HeaderText = "Surname";
-            this.surnameDataGridViewTextBoxColumn1.Name = "surnameDataGridViewTextBoxColumn1";
-            this.surnameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // ageDataGridViewTextBoxColumn1
-            // 
-            this.ageDataGridViewTextBoxColumn1.DataPropertyName = "Age";
-            this.ageDataGridViewTextBoxColumn1.HeaderText = "Age";
-            this.ageDataGridViewTextBoxColumn1.Name = "ageDataGridViewTextBoxColumn1";
-            this.ageDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // rankDataGridViewTextBoxColumn
-            // 
-            this.rankDataGridViewTextBoxColumn.DataPropertyName = "Rank";
-            this.rankDataGridViewTextBoxColumn.HeaderText = "Rank";
-            this.rankDataGridViewTextBoxColumn.Name = "rankDataGridViewTextBoxColumn";
-            this.rankDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // iDDataGridViewTextBoxColumn1
-            // 
-            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // professorBindingSource
-            // 
-            this.professorBindingSource.DataSource = typeof(WindowsFormsApp1.Impl.Professor);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // surnameDataGridViewTextBoxColumn
-            // 
-            this.surnameDataGridViewTextBoxColumn.DataPropertyName = "Surname";
-            this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
-            this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
-            this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ageDataGridViewTextBoxColumn
-            // 
-            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
-            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
-            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
-            this.ageDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // registrationNumberDataGridViewTextBoxColumn
-            // 
-            this.registrationNumberDataGridViewTextBoxColumn.DataPropertyName = "RegistrationNumber";
-            this.registrationNumberDataGridViewTextBoxColumn.HeaderText = "RegistrationNumber";
-            this.registrationNumberDataGridViewTextBoxColumn.Name = "registrationNumberDataGridViewTextBoxColumn";
-            this.registrationNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataSource = typeof(WindowsFormsApp1.Impl.Student);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label6.Location = new System.Drawing.Point(5, 355);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 18);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Students";
             // 
             // DataForm1
             // 
@@ -688,7 +688,7 @@ namespace WindowsFormsApp1.WUI {
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.dateTimePickerDays);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.ctrlSchedule);
             this.Controls.Add(this.ctrlCourseList);
@@ -701,13 +701,13 @@ namespace WindowsFormsApp1.WUI {
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlStudentdataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlProfessordataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCoursedataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlScheduledataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -737,7 +737,7 @@ namespace WindowsFormsApp1.WUI {
         private System.Windows.Forms.ListBox ctrlStudentList;
         private System.Windows.Forms.ListBox ctrlProfessorList;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.DateTimePicker dateTimePickerDays;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
