@@ -33,7 +33,7 @@ namespace WindowsFormsApp1.WUI {
             ctrlStudentList.Visible = false;
             ctrlCourseList.Visible = false;
             ctrlSchedule.Visible = false;
-            btnLoad.Visible = false;
+            //btnLoad.Visible = false;
             btnAdd.Visible = false;
             // Load data on enter!
             LoadUniversityData();
@@ -44,7 +44,14 @@ namespace WindowsFormsApp1.WUI {
             ctrlCoursedataGridView.DataSource = UniversityApp.Courses;
         }
 
-        private void btnLoad_Click(object sender, EventArgs e) {}
+        private void btnLoad_Click(object sender, EventArgs e) {
+            DeserializeFromJson();
+            ctrlProfessordataGridView.DataSource = UniversityApp.Professors;
+            ctrlStudentdataGridView.DataSource = UniversityApp.Students;
+            ctrlCoursedataGridView.DataSource = UniversityApp.Courses;
+            ctrlScheduledataGridView.DataSource = UniversityApp.ScheduledCourses;
+            ctrlScheduledataGridView.Refresh();
+        }
 
          //1. CANNOT ADD SAME STUDENT + PROFESSOR IN SAME DATE & HOUR
         public bool StudentAvailabilityValidation(string tutorialTime, DateTime calendar, Guid studentID) {
@@ -95,7 +102,7 @@ namespace WindowsFormsApp1.WUI {
             }
             return true;
         }
-         // Display on a grid
+      
         private void LoadUniversityData() {
             // Display on a grid
             UniversityApp.DataUniversity(); 
@@ -139,6 +146,28 @@ namespace WindowsFormsApp1.WUI {
             UniversityApp.AddScheduledCourse(courseID, professorID, studentID, calendar.Date, courseTime); 
             //View data to schedule Grid
             ctrlScheduledataGridView.DataSource = UniversityApp.ScheduledCourses;  
+        }
+        private void DeserializeFromJson() {
+            try {
+
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+                string path = Path.Combine(Environment.CurrentDirectory, _JsonFile);
+
+                if (File.Exists(path)) {
+                    string data = File.ReadAllText(path);
+
+                    UniversityApp = serializer.Deserialize<University>(data);
+
+                }
+
+
+            }
+            catch (Exception ex) {
+
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void RemoveButton() {
