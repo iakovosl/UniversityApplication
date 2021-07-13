@@ -25,7 +25,7 @@ namespace WindowsFormsApp1.WUI {
             InitializeComponent();
         }
 
-        #region old code
+       
         private void DataForm_Load(object sender, EventArgs e) {
             
 
@@ -34,54 +34,16 @@ namespace WindowsFormsApp1.WUI {
         }
 
         private void loadDataToolStripMenuItem_Click(object sender, EventArgs e) {
-
-            JavaScriptSerializer r = new JavaScriptSerializer();
-
-            UniversityApp = r.Deserialize<University>(File.ReadAllText("Data.json"));
-
-            foreach (Student student in UniversityApp.Students) {
-                ctrlStudentList.Items.Add(student.Name + " " + student.Surname);
-            }
-
-            for (int i = 0; i < UniversityApp.Courses.Count - 1; i++) {
-
-                ctrlCourseList.Items.Add(UniversityApp.Courses[i].Code + "--" + UniversityApp.Courses[i].Subject);
-            }
-
-
-            foreach (Professor professor in UniversityApp.Professors) {
-                ctrlProfessorList.Items.Add(string.Format("{0}  {1}", professor.Name, professor.Surname));
-            }
+            serialize();
         }
 
         private void saveDataToolStripMenuItem_Click(object sender, EventArgs e) {
-            JavaScriptSerializer save_Serializer = new JavaScriptSerializer();
-
-            File.WriteAllText("UniData21.json", save_Serializer.Serialize(UniversityApp));
+            saveDataToJSON();
         }
-        #endregion
+        
 
         #region new code
-        private void DataForm1_Load(object sender, EventArgs e) {
-            ctrlProfessorList.Visible = false;
-            ctrlStudentList.Visible = false;
-            ctrlCourseList.Visible = false;
-            ctrlSchedule.Visible = false;
-            button11.Visible = false;
-            btnLoad.Visible = false;
-            
-            button9.Visible = false;
-            button10.Visible = false;
-           
-            btnAdd.Visible = false;
-            // todo : load data on enter!
-            LoadUniversityData();
-
-          
-            ctrlProfessordataGridView.DataSource = UniversityApp.Professors;
-            ctrlStudentdataGridView.DataSource = UniversityApp.Students;
-            ctrlCoursedataGridView.DataSource = UniversityApp.Courses;
-        }
+       
 
 
         private void UniversityDataInitialization() {
@@ -89,152 +51,21 @@ namespace WindowsFormsApp1.WUI {
            // UniversityApp.DataUniversity();
            // RefreshViews();
         }
-        private void RefreshViews() {
-            foreach (Student student in UniversityApp.Students) {
-                ctrlProfessorList.Items.Add(student.Name + " " + student.Surname);
-            }
-
-            foreach (Course course in UniversityApp.Courses) {
-                ctrlStudentList.Items.Add(course.Code + "--" + course.Subject);
-            }
-
-
-            foreach (Professor professor in UniversityApp.Professors) {
-
-                ctrlCourseList.Items.Add(string.Format("{0}  {1}", professor.Name, professor.Surname));
-            }
-
-        }
-
-        private void button9_Click(object sender, EventArgs e) {
-
-            JavaScriptSerializer GG = new JavaScriptSerializer();
-
-            UniversityApp = GG.Deserialize<University>(File.ReadAllText("Data.json"));
-
-            foreach (Student student in UniversityApp.Students) {
-                ctrlProfessorList.Items.Add(student.Name + " " + student.Surname);
-            }
-
-            for (int i = 0; i < UniversityApp.Courses.Count - 1; i++) {
-
-                ctrlStudentList.Items.Add(UniversityApp.Courses[i].Code + "--" + UniversityApp.Courses[i].Subject);
-            }
-
-            // we do a loop
-            foreach (Professor professor in UniversityApp.Professors) {
-                // we add to the list
-                ctrlCourseList.Items.Add(string.Format("{0}  {1}", professor.Name, professor.Surname));
-            }
-
-        }
-
-        private void button10_Click(object sender, EventArgs e) {
-            JavaScriptSerializer ff = new JavaScriptSerializer();
-
-            File.WriteAllText("Data.json", ff.Serialize(UniversityApp));
-        }
-
-
-
-        public void validate_professorCourse_with_studentCourse() {
-
-            //TODO: ???
-
-        }
+       
+        public void validate_professorCourse_with_studentCourse() {}
 
         #endregion
-
-        private void button11_Click(object sender, EventArgs e) {
-
-
-
-            //UniversityApp.run_once();
-
-            foreach (Student student in UniversityApp.Students) {
-                ctrlProfessorList.Items.Add(student.Name + " " + student.Surname);
-            }
-
-            foreach (Course course in UniversityApp.Courses) {
-                ctrlCourseList.Items.Add(course.Code + "--" + course.Subject);
-            }
-
-
-            foreach (Professor cc1 in UniversityApp.Professors) {
-
-                ctrlProfessorList.Items.Add(string.Format("{0}  {1}", cc1.Name, cc1.Surname));
-            }
-
-            //should run only once!
-            button11.Hide();
-        }
-
-        private void addToScheduleToolStripMenuItem_Click(object sender, EventArgs e) {
-
-            // todo : display on a grid??
-
-            // todo: add exception handling?
-            UniversityApp.ScheduleList.Add(new Schedule() {
-                Student = ctrlStudentList.SelectedItem.ToString(),
-                Professor = ctrlProfessorList.SelectedItem.ToString(),
-                Course = ctrlCourseList.SelectedItem.ToString(),
-                Calendar = dateTimePickerDays.Value
-            });
-
-            ctrlSchedule.Items.Clear();
-            foreach (var schedulelist in UniversityApp.ScheduleList) {
-
-                ctrlSchedule.Items.Add(
-                    schedulelist.Calendar + " " +
-                    schedulelist.Course + " " +
-                    schedulelist.Student + " " +
-                    schedulelist.Professor);
-
-            }
-
-        }
-
-        private void ctrlSchedule_SelectedIndexChanged(object sender, EventArgs e) {
-
-        }
+        private void ctrlSchedule_SelectedIndexChanged(object sender, EventArgs e) {}
 
       
 
         private void initializeDataToolStripMenuItem_Click(object sender, EventArgs e) {
             UniversityDataInitialization();
-
-        }
+         }
 
         private void btnAdd_Click(object sender, EventArgs e) {
             AddNewSchedule();
 
-        }
-
-        private void AddNewSchedule() {
-            try {
-
-                // TODO: 1. CANNOT ADD SAME STUDENT + PROFESSOR IN SAME DATE & HOUR
-
-                // TODO: 2. EACH STUDENT CANNOT HAVE MORE THAN 3 COURSES PER DAY!
-
-                // TODO: 3. A PROFESSOR CANNOT TEACH MORE THAN 4 COURSES PER DAY AND 40 COURSES PER WEEK
-
-                UniversityApp.ScheduleList.Add(new Schedule() { Course = ctrlStudentList.SelectedItem.ToString(), Student = ctrlProfessorList.SelectedItem.ToString(), Professor = ctrlCourseList.SelectedItem.ToString(), Calendar = dateTimePickerDays.Value });
-
-                ctrlSchedule.Items.Clear();
-                foreach (var AA in UniversityApp.ScheduleList) {
-
-                    ctrlSchedule.Items.Add(AA.Calendar + " | " + AA.Course + " | " + AA.Student + " | " + AA.Professor);
-
-                }
-            }
-            catch {
-
-            }
-            finally {
-                MessageBox.Show("The record succesfully added");
-
-            }
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
@@ -244,6 +75,26 @@ namespace WindowsFormsApp1.WUI {
 
             File.WriteAllText("UniData22.json", save_Serializer.Serialize(UniversityApp));
 
+        }
+        private void DataForm1_Load(object sender, EventArgs e) {
+            ctrlProfessorList.Visible = false;
+            ctrlStudentList.Visible = false;
+            ctrlCourseList.Visible = false;
+            ctrlSchedule.Visible = false;
+            button11.Visible = false;
+            btnLoad.Visible = false;
+
+            button9.Visible = false;
+            button10.Visible = false;
+
+            btnAdd.Visible = false;
+            // todo : load data on enter!
+            LoadUniversityData();
+
+
+            ctrlProfessordataGridView.DataSource = UniversityApp.Professors;
+            ctrlStudentdataGridView.DataSource = UniversityApp.Students;
+            ctrlCoursedataGridView.DataSource = UniversityApp.Courses;
         }
 
         private void btnLoad_Click(object sender, EventArgs e) {
@@ -257,6 +108,7 @@ namespace WindowsFormsApp1.WUI {
                 ctrlSchedule.Items.Add(schedule.Student + " " + schedule.Professor + " " + schedule.Course + " " + schedule.Calendar);
             }
         }
+
 
         private void btnAddNewSchedule_Click(object sender, EventArgs e) {
 
@@ -382,7 +234,16 @@ namespace WindowsFormsApp1.WUI {
 
         }
 
+        private void RemoveButton() {
+            // int rowIndex = ctrlScheduledataGridView.CurrentCell.RowIndex;
+            // ctrlScheduledataGridView.Rows.RemoveAt(rowIndex);
+            foreach (DataGridViewRow row in ctrlScheduledataGridView.SelectedRows) {
+                ctrlScheduledataGridView.Rows.Remove(row);
+            }
+        }
 
+
+        #region methods
         private void scheduleBindingSource_CurrentChanged(object sender, EventArgs e) {
 
         }
@@ -395,13 +256,94 @@ namespace WindowsFormsApp1.WUI {
             RemoveButton();
         }
 
-        private void RemoveButton() {
-            // int rowIndex = ctrlScheduledataGridView.CurrentCell.RowIndex;
-            // ctrlScheduledataGridView.Rows.RemoveAt(rowIndex);
-                foreach (DataGridViewRow row in ctrlScheduledataGridView.SelectedRows) {
-                ctrlScheduledataGridView.Rows.Remove(row);
+       
+        private void serialize() {
+
+            JavaScriptSerializer r = new JavaScriptSerializer();
+
+            UniversityApp = r.Deserialize<University>(File.ReadAllText("Data.json"));
+
+            foreach (Student student in UniversityApp.Students) {
+                ctrlStudentList.Items.Add(student.Name + " " + student.Surname);
+            }
+
+            for (int i = 0; i < UniversityApp.Courses.Count - 1; i++) {
+
+                ctrlCourseList.Items.Add(UniversityApp.Courses[i].Code + "--" + UniversityApp.Courses[i].Subject);
+            }
+
+
+            foreach (Professor professor in UniversityApp.Professors) {
+                ctrlProfessorList.Items.Add(string.Format("{0}  {1}", professor.Name, professor.Surname));
             }
         }
+        private void saveDataToJSON() {
+            JavaScriptSerializer save_Serializer = new JavaScriptSerializer();
+
+            File.WriteAllText("UniData21.json", save_Serializer.Serialize(UniversityApp));
+        }
+
+        private void RefreshViews() {
+            foreach (Student student in UniversityApp.Students) {
+                ctrlProfessorList.Items.Add(student.Name + " " + student.Surname);
+            }
+
+            foreach (Course course in UniversityApp.Courses) {
+                ctrlStudentList.Items.Add(course.Code + "--" + course.Subject);
+            }
+
+
+            foreach (Professor professor in UniversityApp.Professors) {
+
+                ctrlCourseList.Items.Add(string.Format("{0}  {1}", professor.Name, professor.Surname));
+            }
+
+        }
+
+        private void addToScheduleToolStripMenuItem_Click(object sender, EventArgs e) {
+
+            // todo : display on a grid??
+
+            // todo: add exception handling?
+            UniversityApp.ScheduleList.Add(new Schedule() {
+                Student = ctrlStudentList.SelectedItem.ToString(),
+                Professor = ctrlProfessorList.SelectedItem.ToString(),
+                Course = ctrlCourseList.SelectedItem.ToString(),
+                Calendar = dateTimePickerDays.Value
+            });
+
+            ctrlSchedule.Items.Clear();
+            foreach (var schedulelist in UniversityApp.ScheduleList) {
+
+                ctrlSchedule.Items.Add(
+                    schedulelist.Calendar + " " +
+                    schedulelist.Course + " " +
+                    schedulelist.Student + " " +
+                    schedulelist.Professor);
+
+            }
+
+        }
+        private void AddNewSchedule() {
+            try {
+                UniversityApp.ScheduleList.Add(new Schedule() { Course = ctrlStudentList.SelectedItem.ToString(), Student = ctrlProfessorList.SelectedItem.ToString(), Professor = ctrlCourseList.SelectedItem.ToString(), Calendar = dateTimePickerDays.Value });
+
+                ctrlSchedule.Items.Clear();
+                foreach (var AA in UniversityApp.ScheduleList) {
+
+                    ctrlSchedule.Items.Add(AA.Calendar + " | " + AA.Course + " | " + AA.Student + " | " + AA.Professor);
+
+                }
+            }
+            catch {
+
+            }
+            finally {
+                MessageBox.Show("The record succesfully added");
+
+            }
+        }
+        #endregion
     }
 }
 

@@ -175,7 +175,7 @@ namespace WindowsFormsApp1.WUI {
             this.button9.TabIndex = 11;
             this.button9.Text = "Load";
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            
             // 
             // button10
             // 
@@ -185,7 +185,7 @@ namespace WindowsFormsApp1.WUI {
             this.button10.TabIndex = 12;
             this.button10.Text = "Save";
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            
             // 
             // lblTitle
             // 
@@ -206,7 +206,7 @@ namespace WindowsFormsApp1.WUI {
             this.button11.TabIndex = 14;
             this.button11.Text = "Initialize (only run once!)";
             this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+           
             // 
             // menuStrip1
             // 
