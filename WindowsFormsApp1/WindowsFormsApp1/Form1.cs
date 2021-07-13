@@ -42,19 +42,9 @@ namespace WindowsFormsApp1.WUI {
         }
         
 
-        #region new code
-       
-
-
-        private void UniversityDataInitialization() {
-            //UniversityApp = new University();
-           // UniversityApp.DataUniversity();
-           // RefreshViews();
-        }
-       
         public void validate_professorCourse_with_studentCourse() {}
 
-        #endregion
+       
         private void ctrlSchedule_SelectedIndexChanged(object sender, EventArgs e) {}
 
       
@@ -69,10 +59,7 @@ namespace WindowsFormsApp1.WUI {
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
-            // JsonController json = new JsonController(_JsonFile);
-            //  json.SerializeToJson(UniversityApp);
             JavaScriptSerializer save_Serializer = new JavaScriptSerializer();
-
             File.WriteAllText("UniData22.json", save_Serializer.Serialize(UniversityApp));
 
         }
@@ -81,14 +68,9 @@ namespace WindowsFormsApp1.WUI {
             ctrlStudentList.Visible = false;
             ctrlCourseList.Visible = false;
             ctrlSchedule.Visible = false;
-            button11.Visible = false;
-            btnLoad.Visible = false;
-
-            button9.Visible = false;
-            button10.Visible = false;
-
+            //btnLoad.Visible = false;
             btnAdd.Visible = false;
-            // todo : load data on enter!
+            // Load data on enter!
             LoadUniversityData();
 
 
@@ -164,7 +146,7 @@ namespace WindowsFormsApp1.WUI {
             return true;
         }
               // Display on a grid
-    private void LoadUniversityData() {
+        private void LoadUniversityData() {
             //load data from University class to object
             UniversityApp.DataUniversity(); 
             //populate University Data
@@ -244,6 +226,11 @@ namespace WindowsFormsApp1.WUI {
 
 
         #region methods
+        private void UniversityDataInitialization() {
+            //UniversityApp = new University();
+            // UniversityApp.DataUniversity();
+            // RefreshViews();
+        }
         private void scheduleBindingSource_CurrentChanged(object sender, EventArgs e) {
 
         }
@@ -343,7 +330,11 @@ namespace WindowsFormsApp1.WUI {
 
             }
         }
+
+
         #endregion
+
+      
     }
 }
 

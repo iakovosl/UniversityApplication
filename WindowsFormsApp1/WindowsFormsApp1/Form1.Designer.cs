@@ -32,10 +32,6 @@ namespace WindowsFormsApp1.WUI {
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.dateTimePickerDays = new System.Windows.Forms.DateTimePicker();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.initializeDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,9 +100,9 @@ namespace WindowsFormsApp1.WUI {
             this.ctrlSchedule.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ctrlSchedule.FormattingEnabled = true;
             this.ctrlSchedule.ItemHeight = 25;
-            this.ctrlSchedule.Location = new System.Drawing.Point(125, 336);
+            this.ctrlSchedule.Location = new System.Drawing.Point(1193, 407);
             this.ctrlSchedule.Name = "ctrlSchedule";
-            this.ctrlSchedule.Size = new System.Drawing.Size(64, 79);
+            this.ctrlSchedule.Size = new System.Drawing.Size(50, 54);
             this.ctrlSchedule.TabIndex = 7;
             this.ctrlSchedule.SelectedIndexChanged += new System.EventHandler(this.ctrlSchedule_SelectedIndexChanged);
             // 
@@ -115,7 +111,7 @@ namespace WindowsFormsApp1.WUI {
             this.ctrlCourseList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ctrlCourseList.FormattingEnabled = true;
             this.ctrlCourseList.ItemHeight = 21;
-            this.ctrlCourseList.Location = new System.Drawing.Point(1163, 306);
+            this.ctrlCourseList.Location = new System.Drawing.Point(0, 321);
             this.ctrlCourseList.Name = "ctrlCourseList";
             this.ctrlCourseList.Size = new System.Drawing.Size(80, 67);
             this.ctrlCourseList.TabIndex = 6;
@@ -125,7 +121,7 @@ namespace WindowsFormsApp1.WUI {
             this.ctrlStudentList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ctrlStudentList.FormattingEnabled = true;
             this.ctrlStudentList.ItemHeight = 21;
-            this.ctrlStudentList.Location = new System.Drawing.Point(1163, 431);
+            this.ctrlStudentList.Location = new System.Drawing.Point(1163, 355);
             this.ctrlStudentList.Name = "ctrlStudentList";
             this.ctrlStudentList.Size = new System.Drawing.Size(80, 46);
             this.ctrlStudentList.TabIndex = 5;
@@ -135,14 +131,14 @@ namespace WindowsFormsApp1.WUI {
             this.ctrlProfessorList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ctrlProfessorList.FormattingEnabled = true;
             this.ctrlProfessorList.ItemHeight = 21;
-            this.ctrlProfessorList.Location = new System.Drawing.Point(1163, 379);
+            this.ctrlProfessorList.Location = new System.Drawing.Point(0, 404);
             this.ctrlProfessorList.Name = "ctrlProfessorList";
             this.ctrlProfessorList.Size = new System.Drawing.Size(80, 46);
             this.ctrlProfessorList.TabIndex = 4;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(3, 512);
+            this.btnAdd.Location = new System.Drawing.Point(0, 476);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(61, 32);
             this.btnAdd.TabIndex = 8;
@@ -166,47 +162,6 @@ namespace WindowsFormsApp1.WUI {
             this.dateTimePickerDays.Name = "dateTimePickerDays";
             this.dateTimePickerDays.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerDays.TabIndex = 10;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(70, 474);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(64, 32);
-            this.button9.TabIndex = 11;
-            this.button9.Text = "Load";
-            this.button9.UseVisualStyleBackColor = true;
-            
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(0, 431);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(64, 32);
-            this.button10.TabIndex = 12;
-            this.button10.Text = "Save";
-            this.button10.UseVisualStyleBackColor = true;
-            
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.lblTitle.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lblTitle.Location = new System.Drawing.Point(405, 9);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(426, 42);
-            this.lblTitle.TabIndex = 13;
-            this.lblTitle.Text = "University Courses Scheduler";
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(0, 474);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(64, 32);
-            this.button11.TabIndex = 14;
-            this.button11.Text = "Initialize (only run once!)";
-            this.button11.UseVisualStyleBackColor = true;
-           
             // 
             // menuStrip1
             // 
@@ -279,7 +234,7 @@ namespace WindowsFormsApp1.WUI {
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(0, 393);
+            this.btnSave.Location = new System.Drawing.Point(977, 407);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(79, 32);
             this.btnSave.TabIndex = 16;
@@ -289,7 +244,7 @@ namespace WindowsFormsApp1.WUI {
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(1176, 483);
+            this.btnLoad.Location = new System.Drawing.Point(1062, 407);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(67, 32);
             this.btnLoad.TabIndex = 17;
@@ -376,20 +331,20 @@ namespace WindowsFormsApp1.WUI {
             this.courseTimeDataGridViewTextBoxColumn,
             this.dateDataGridViewTextBoxColumn});
             this.ctrlScheduledataGridView.DataSource = this.scheduleBindingSource;
-            this.ctrlScheduledataGridView.Location = new System.Drawing.Point(228, 321);
+            this.ctrlScheduledataGridView.Location = new System.Drawing.Point(220, 321);
             this.ctrlScheduledataGridView.Name = "ctrlScheduledataGridView";
             this.ctrlScheduledataGridView.ReadOnly = true;
             this.ctrlScheduledataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ctrlScheduledataGridView.Size = new System.Drawing.Size(743, 187);
+            this.ctrlScheduledataGridView.Size = new System.Drawing.Size(751, 187);
             this.ctrlScheduledataGridView.TabIndex = 21;
             // 
             // btnAddNewSchedule
             // 
-            this.btnAddNewSchedule.Location = new System.Drawing.Point(355, 54);
+            this.btnAddNewSchedule.Location = new System.Drawing.Point(355, 56);
             this.btnAddNewSchedule.Name = "btnAddNewSchedule";
             this.btnAddNewSchedule.Size = new System.Drawing.Size(143, 32);
             this.btnAddNewSchedule.TabIndex = 22;
-            this.btnAddNewSchedule.Text = "New Schedule";
+            this.btnAddNewSchedule.Text = "Add New Schedule";
             this.btnAddNewSchedule.UseVisualStyleBackColor = true;
             this.btnAddNewSchedule.Click += new System.EventHandler(this.btnAddNewSchedule_Click_1);
             // 
@@ -455,13 +410,13 @@ namespace WindowsFormsApp1.WUI {
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.Location = new System.Drawing.Point(5, 355);
+            this.label6.Location = new System.Drawing.Point(490, 24);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 18);
+            this.label6.Size = new System.Drawing.Size(331, 25);
             this.label6.TabIndex = 28;
-            this.label6.Text = "Students";
+            this.label6.Text = "University Courses Scheduler ";
             // 
             // iDDataGridViewTextBoxColumn3
             // 
@@ -684,10 +639,6 @@ namespace WindowsFormsApp1.WUI {
             this.Controls.Add(this.ctrlStudentdataGridView);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
             this.Controls.Add(this.dateTimePickerDays);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
@@ -740,10 +691,6 @@ namespace WindowsFormsApp1.WUI {
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.DateTimePicker dateTimePickerDays;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mainToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem initializeDataToolStripMenuItem;
