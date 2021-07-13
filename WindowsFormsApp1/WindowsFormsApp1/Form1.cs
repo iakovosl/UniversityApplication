@@ -77,7 +77,7 @@ namespace WindowsFormsApp1.WUI {
             // todo : load data on enter!
             LoadUniversityData();
 
-            //load mock data to prof,student,course grids
+          
             ctrlProfessordataGridView.DataSource = UniversityApp.Professors;
             ctrlStudentdataGridView.DataSource = UniversityApp.Students;
             ctrlCoursedataGridView.DataSource = UniversityApp.Courses;
@@ -362,13 +362,16 @@ namespace WindowsFormsApp1.WUI {
 
             if (StudentCoursesValidation(calendar, studentID) == false) {
                 return;
-            }else if (ProfessorCoursesValidation(calendar, professorID) == false) {
+            }
+            else if (ProfessorCoursesValidation(calendar, professorID) == false) {
                 return;
-            }else if (StudentAvailabilityValidation(courseTime, calendar, studentID) == false) {
+            }
+            else if (StudentAvailabilityValidation(courseTime, calendar, studentID) == false) {
                 return;
-            }else if (ProfessorAvailabilityValidation(courseTime, calendar, professorID) == false) {
+            }
+            else if (ProfessorAvailabilityValidation(courseTime, calendar, professorID) == false) {
                 return;
-            }else
+            }
 
             //Adding new scheduled course in grid
             UniversityApp.AddScheduledCourse(courseID, professorID, studentID, calendar.Date, courseTime); 
@@ -393,8 +396,11 @@ namespace WindowsFormsApp1.WUI {
         }
 
         private void RemoveButton() {
-            int rowIndex = ctrlScheduledataGridView.CurrentCell.RowIndex;
-            ctrlScheduledataGridView.Rows.RemoveAt(rowIndex);
+            // int rowIndex = ctrlScheduledataGridView.CurrentCell.RowIndex;
+            // ctrlScheduledataGridView.Rows.RemoveAt(rowIndex);
+                foreach (DataGridViewRow row in ctrlScheduledataGridView.SelectedRows) {
+                ctrlScheduledataGridView.Rows.Remove(row);
+            }
         }
     }
 }
