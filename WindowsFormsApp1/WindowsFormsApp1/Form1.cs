@@ -147,6 +147,10 @@ namespace WindowsFormsApp1.WUI {
             }
         }
 
+        private void btnExit_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
+
 
         #region methods
         private void btnAdd_Click(object sender, EventArgs e) {
@@ -276,6 +280,8 @@ namespace WindowsFormsApp1.WUI {
         private void btnAddNewSchedule_Click(object sender, EventArgs e) { }
 
         #endregion
+
+       
     }
 }
 
