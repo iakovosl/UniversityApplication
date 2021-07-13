@@ -10,6 +10,8 @@ namespace WindowsFormsApp1.Impl {
         // PROPERTIES
         public int RegistrationNumber { get; set; }
         public List<CourseCategoryEnum> CanLearn { get; set; }
+        public string Learn => String.Join(",", CanLearn.Select(x => x.ToString()));
+
 
         public Student():base() { }
     }

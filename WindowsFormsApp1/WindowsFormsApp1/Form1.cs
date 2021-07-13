@@ -107,8 +107,8 @@ namespace WindowsFormsApp1.WUI {
             DataGridViewSelectedRowCollection selectedStudentItem = ctrlStudentdataGridView.SelectedRows;
             DataGridViewSelectedRowCollection selectedCourseItem = ctrlCoursedataGridView.SelectedRows;
             //Data grid view selected cell value ID
-            var professorID = (Guid)selectedProfessorItem[0].Cells[4].Value;
-            var studentID = (Guid)selectedStudentItem[0].Cells[4].Value;
+            var professorID = (Guid)selectedProfessorItem[0].Cells[5].Value;
+            var studentID = (Guid)selectedStudentItem[0].Cells[5].Value;
             var courseID = (Guid)selectedCourseItem[0].Cells[4].Value;
 
             dateTimePickerDays.CustomFormat = "dd/MM/yyyy";
