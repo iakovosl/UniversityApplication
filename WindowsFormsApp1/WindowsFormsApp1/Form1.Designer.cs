@@ -234,7 +234,7 @@ namespace WindowsFormsApp1.WUI {
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(977, 407);
+            this.btnSave.Location = new System.Drawing.Point(994, 407);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(79, 32);
             this.btnSave.TabIndex = 16;
@@ -244,7 +244,7 @@ namespace WindowsFormsApp1.WUI {
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(1062, 407);
+            this.btnLoad.Location = new System.Drawing.Point(1176, 467);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(67, 32);
             this.btnLoad.TabIndex = 17;

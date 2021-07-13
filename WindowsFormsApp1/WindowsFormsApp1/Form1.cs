@@ -33,7 +33,7 @@ namespace WindowsFormsApp1.WUI {
             ctrlStudentList.Visible = false;
             ctrlCourseList.Visible = false;
             ctrlSchedule.Visible = false;
-            //btnLoad.Visible = false;
+            btnLoad.Visible = false;
             btnAdd.Visible = false;
             // Load data on enter!
             LoadUniversityData();
