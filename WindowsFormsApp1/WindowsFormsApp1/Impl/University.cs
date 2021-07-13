@@ -80,28 +80,32 @@ namespace WindowsFormsApp1.Impl {
                 Name = "Maria",
                 Surname = "Papadopoulou",
                 Age = 33,
-                Rank = "1"
+                Rank = "1",
+                CanTeach = new List<CourseCategoryEnum>() { CourseCategoryEnum.Chemistry, CourseCategoryEnum.Financial }
             });
 
             Professors.Add(new Professor() { 
                 Name = "Eirini",
                 Surname = "Papa",
                 Age = 36,
-                Rank = "2"
+                Rank = "2",
+                CanTeach = new List<CourseCategoryEnum>() { CourseCategoryEnum.Chemistry, CourseCategoryEnum.Financial }
             });
 
             Professors.Add(new Professor() {
                 Name = "Sofia",
                 Surname = "Papadopoulou",
                 Age = 33,
-                Rank = "3"
+                Rank = "3",
+                CanTeach = new List<CourseCategoryEnum>() { CourseCategoryEnum.Chemistry, CourseCategoryEnum.Financial }
             });
 
             Professors.Add(new Professor() {
                 Name = "Nikos",
                 Surname = "Papas",
                 Age = 33,
-                Rank = "4"
+                Rank = "4",
+                CanTeach = new List<CourseCategoryEnum>() { CourseCategoryEnum.Chemistry, CourseCategoryEnum.Financial }
             });
         }
 

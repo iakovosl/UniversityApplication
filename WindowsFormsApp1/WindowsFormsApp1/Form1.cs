@@ -15,7 +15,7 @@ namespace WindowsFormsApp1.WUI {
 
         private University UniversityApp = new University();
 
-        private const string _JsonFile = "UniData22.json";
+        private const string _JsonFile = "Data.json";
         public List<Form> OpenForms { get; set; }
         public object EditObject { get; set; }
         public BindingList<Schedule> ScheduledCourses { get; set; }
