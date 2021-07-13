@@ -15,7 +15,6 @@ namespace WindowsFormsApp1.WUI {
 
         private University UniversityApp = new University();
 
-        //private string _jsonFile = "Data.json";
         private const string _JsonFile = "UniData22.json";
         public List<Form> OpenForms { get; set; }
         public object EditObject { get; set; }
@@ -25,42 +24,8 @@ namespace WindowsFormsApp1.WUI {
             InitializeComponent();
         }
 
-       
-        private void DataForm_Load(object sender, EventArgs e) {
-            
-
-            // todo : load data on enter!
-
-        }
-
-        private void loadDataToolStripMenuItem_Click(object sender, EventArgs e) {
-            serialize();
-        }
-
-        private void saveDataToolStripMenuItem_Click(object sender, EventArgs e) {
-            saveDataToJSON();
-        }
-        
-
-        public void validate_professorCourse_with_studentCourse() {}
-
-       
-        private void ctrlSchedule_SelectedIndexChanged(object sender, EventArgs e) {}
-
-      
-
-        private void initializeDataToolStripMenuItem_Click(object sender, EventArgs e) {
-            UniversityDataInitialization();
-         }
-
-        private void btnAdd_Click(object sender, EventArgs e) {
-            AddNewSchedule();
-
-        }
-
         private void btnSave_Click(object sender, EventArgs e) {
-            JavaScriptSerializer save_Serializer = new JavaScriptSerializer();
-            File.WriteAllText("UniData22.json", save_Serializer.Serialize(UniversityApp));
+            (new JsonController(_JsonFile)).SerializeToJson(UniversityApp);
 
         }
         private void DataForm1_Load(object sender, EventArgs e) {
@@ -79,22 +44,7 @@ namespace WindowsFormsApp1.WUI {
             ctrlCoursedataGridView.DataSource = UniversityApp.Courses;
         }
 
-        private void btnLoad_Click(object sender, EventArgs e) {
-            // UniversityApp = (new JsonController(_JsonFile)).DeserializeFromJson();
-            // RefreshViews();
-            JavaScriptSerializer r = new JavaScriptSerializer();
-
-            UniversityApp = r.Deserialize<University>(File.ReadAllText("UniData111.json"));
-
-            foreach (Schedule schedule in UniversityApp.ScheduleList) {
-                ctrlSchedule.Items.Add(schedule.Student + " " + schedule.Professor + " " + schedule.Course + " " + schedule.Calendar);
-            }
-        }
-
-
-        private void btnAddNewSchedule_Click(object sender, EventArgs e) {
-
-        }
+        private void btnLoad_Click(object sender, EventArgs e) {}
 
          //1. CANNOT ADD SAME STUDENT + PROFESSOR IN SAME DATE & HOUR
         public bool StudentAvailabilityValidation(string tutorialTime, DateTime calendar, Guid studentID) {
@@ -121,7 +71,7 @@ namespace WindowsFormsApp1.WUI {
             return true;
         }
 
-        //3. A PROFESSOR CANNOT TEACH MORE THAN 4 COURSES PER DAY AND 40 COURSES PER WEEK
+        //3. A PROFESSOR CANNOT TEACH MORE THAN 4 COURSES PER DAY
         public bool ProfessorCoursesValidation(DateTime calendar, Guid professorID) {
             var professorSchedule = UniversityApp.ScheduledCourses.Where(x => x.ProfessorID == professorID);
             var countCourses = professorSchedule.Count(x => x.Date == calendar.Date);
@@ -145,33 +95,11 @@ namespace WindowsFormsApp1.WUI {
             }
             return true;
         }
-              // Display on a grid
+         // Display on a grid
         private void LoadUniversityData() {
-            //load data from University class to object
+            // Display on a grid
             UniversityApp.DataUniversity(); 
-            //populate University Data
-            PopulateUniversityDataColumns();
-            foreach (Professor professor in UniversityApp.Professors) {
-                // Add professors data to list
-                ctrlProfessorList.Items.Add($"{professor.ID}\t{professor.Name}\t{professor.Surname}\t{professor.Age}\t{professor.Rank}");
-            }
-            foreach (Student student in UniversityApp.Students) {
-                // Add students data to list
-                ctrlStudentList.Items.Add($"{student.ID}\t{student.Name}\t{student.Surname}\t{student.Age}\t{student.RegistrationNumber}");
-            }
-            foreach (Course course in UniversityApp.Courses) {
-                //Add courses data to list
-                ctrlCourseList.Items.Add($"{course.ID}\t{course.Code}\t{course.Subject}\t{course.Hours}");
-            }
         }
-
-        //Populate University data in Columns
-        private void PopulateUniversityDataColumns() {
-            ctrlProfessorList.Items.Add(String.Format("Name", "Surname", "Age", "Rank"));
-            ctrlStudentList.Items.Add(String.Format( "Name", "Surname", "Age", "RegNumber"));
-            ctrlCourseList.Items.Add(String.Format( "Code", "Subject", "Hours"));
-        }
-       
         private void btnAddNewSchedule_Click_1(object sender, EventArgs e) {
             //get the selected cells in a DataGridView control
             //get the selected rows in a DataGridView control
@@ -211,14 +139,9 @@ namespace WindowsFormsApp1.WUI {
             UniversityApp.AddScheduledCourse(courseID, professorID, studentID, calendar.Date, courseTime); 
             //View data to schedule Grid
             ctrlScheduledataGridView.DataSource = UniversityApp.ScheduledCourses;  
-
-            // TODO: 3. A PROFESSOR CANNOT TEACH MORE THAN 4 COURSES PER DAY AND 40 COURSES PER WEEK
-
         }
 
         private void RemoveButton() {
-            // int rowIndex = ctrlScheduledataGridView.CurrentCell.RowIndex;
-            // ctrlScheduledataGridView.Rows.RemoveAt(rowIndex);
             foreach (DataGridViewRow row in ctrlScheduledataGridView.SelectedRows) {
                 ctrlScheduledataGridView.Rows.Remove(row);
             }
@@ -226,6 +149,26 @@ namespace WindowsFormsApp1.WUI {
 
 
         #region methods
+        private void btnAdd_Click(object sender, EventArgs e) {
+            AddNewSchedule();
+        }
+        private void loadDataToolStripMenuItem_Click(object sender, EventArgs e) {
+            serialize();
+        }
+
+        private void saveDataToolStripMenuItem_Click(object sender, EventArgs e) {
+            saveDataToJSON();
+        }
+        private void initializeDataToolStripMenuItem_Click(object sender, EventArgs e) {
+            UniversityDataInitialization();
+        }
+        private void DataForm_Load(object sender, EventArgs e) { }
+        //Populate University data in Columns
+        private void PopulateUniversityDataColumns() { }
+        public void validate_professorCourse_with_studentCourse() { }
+
+        private void ctrlSchedule_SelectedIndexChanged(object sender, EventArgs e) { }
+
         private void UniversityDataInitialization() {
             //UniversityApp = new University();
             // UniversityApp.DataUniversity();
@@ -330,11 +273,9 @@ namespace WindowsFormsApp1.WUI {
 
             }
         }
-
+        private void btnAddNewSchedule_Click(object sender, EventArgs e) { }
 
         #endregion
-
-      
     }
 }
 
